@@ -8,11 +8,10 @@ from selenium.webdriver.common.by import By
 import time
 
 
-def test_test1():
+def test_building_settings():
     driver = webdriver.Chrome(ChromeDriverManager().install())
     login.test_login_enter_main_building()
-    elem = WebDriverWait(driver, 30).until(ec.presence_of_element_located((By.ID, "ding-menu-properties")))
-    elem.click()
+    WebDriverWait(driver, 30).until(ec.presence_of_element_located((By.ID, "ding-menu-properties"))).click()
     element = WebDriverWait(driver, 30).until(
         ec.presence_of_element_located((By.ID, "ding-property-list-view__add-property")))
     actions = ActionChains(driver)
